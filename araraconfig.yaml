@@ -1,0 +1,15 @@
+!config
+paths:
+- './.rules'
+logging: true
+preambles:
+  build: |
+    % arara: lualatex: { shell: true }
+    % arara: biber if missing('bbl') || found('log', 'Citation')
+    % arara: bib2gls if missing('glstex') || changed(toFile('05_Datenbanken/Glossardatenbank.bib'))
+    % arara: lualatex if found('log', 'No file ') || found('log', 'undefined references') || found('log', 'Rerun required') || found('log', 'Rerun to get cross-references')
+    % arara: lualatex: { synctex: true }
+  clean: |
+    % arara: clean: { extensions: [pdf, aux, bbl, bcf, blg, glg, log, glstex, out, run.xml, synctex.gz, auxlock, lof, lot, toc] }
+    % arara: clean: { files: [arara.xml, arara.yaml, arara.log] }
+    % arara: remove: { patterns: [ 'Masterthesis-figure?.*' ], directory: Tikz }

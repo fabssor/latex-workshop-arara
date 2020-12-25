@@ -1,0 +1,65 @@
+{
+    "latex-workshop.latex.recipe.default": "arara build",
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "arara build",
+            "tools": [
+                "arara verbose"
+            ]
+        },
+        {
+            "name": "arara build non verbose",
+            "tools": [
+                "arara"
+            ]
+        },
+        {
+            "name": "arara clean & build",
+            "tools": [
+                "arara clean",
+                "arara"
+            ]
+        },
+        {
+            "name": "arara clean",
+            "tools": [
+                "arara clean"
+            ]
+        }
+    ],
+    "latex-workshop.latex.tools": [
+        {
+            "name": "arara verbose",
+            "command": "arara",
+            "args": [
+                "-v",
+                "-p",
+                "build",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "arara",
+            "command": "arara",
+            "args": [
+                "-p",
+                "build",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "arara clean",
+            "command": "arara",
+            "args": [
+                "-p",
+                "clean",
+                "%DOC%"
+            ],
+            "env": {}
+        }
+    ],
+    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": false
+}

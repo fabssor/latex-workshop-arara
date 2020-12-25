@@ -1,0 +1,75 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Documentclass
+\documentclass[
+            ngerman,
+            12pt,
+            twoside,
+            openright,
+            a4paper,
+            headsepline,
+            appendixprefix=true,
+            numbers=noenddot,
+            chapterprefix,
+            listof=totoc
+            ]{scrbook}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Font and language
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}   % German Quotes
+
+\usepackage{fontspec}
+%\setmainfont{TeX Gyre Pagella}%% The Palatino from the TeX Gyre Project
+%\setmainfont{Heuristica}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Listings
+%\usepackage{listings}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Tables
+\usepackage{tabularx}
+\usepackage{booktabs}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Drawings
+\usepackage{tikz}
+\usetikzlibrary{external} %--shell-escape zu pdflatex hinzufügen und Ordner setzten mit \tikzexternalize[prefix=Tikz/]
+\tikzexternalize[prefix=Tikz/]
+\usetikzlibrary{shapes,arrows,positioning, fit, backgrounds, decorations.markings, patterns, trees, mindmap, calc, bending, automata}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Header and Footer
+\usepackage[automark]{scrlayer-scrpage}
+\pagestyle{scrheadings}
+\ohead{}
+\cehead{\leftmark}
+\cohead{\rightmark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Cite
+\usepackage[
+        backend=biber, 
+        bibencoding=utf8,
+        style=ieee
+        ]{biblatex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Glossary
+\usepackage[record,
+            %toc, 
+            nopostdot, 
+            nonumberlist
+            ]{glossaries-extra}
+
+% Print entries in text as italian
+\renewcommand{\glstextformat}[1]{\textit{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% References (include before last)
+\usepackage[hidelinks]{hyperref}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% margins (include as last)
+\usepackage[top=2.5cm, bottom=2cm, outer=2.5cm, inner=3.5cm,includeheadfoot]{geometry} %showframe
